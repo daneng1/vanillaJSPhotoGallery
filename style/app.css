@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;800&display=swap');
+
+body {
+  display: relative;
+  justify-content: center;
+  align-items: center;
+}
+h1 {
+  text-align: center;
+  top: 10;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 5vw;
+  margin: 30px;
+}
+ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: auto;
+}
+
+ul li .horizontalImage {
+  width: 30vw;
+  overflow: hidden;
+  margin: 10px;
+  transition: all 350ms;
+  border-radius: 10px;
+}
+
+ul li .verticalImage {
+  height: 30vw;
+  overflow: hidden;
+  margin: 10px;
+  transition: all 350ms;
+  border-radius: 10px;
+}
+
+ul li .squareImage {
+  height: 30vw;
+  overflow: hidden;
+  margin: 10px;
+  transition: all 350ms;
+  border-radius: 10px;
+}
+
+li img:hover {
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.248) ;
+
+}
+
+li img {
+  border: 1px solid rgba(165, 165, 165, 0.241);
+  overflow: hidden;
+  /* height: 150%; */
+  text-indent: 50%;
+  /* border-radius: 10px; */
+  cursor: pointer;
+}
+
+#fullSizeImageContainer {
+  position:fixed;
+  top: 0;
+}
+
+#container {
+  position: flex;
+  width: 100vw;
+  height: 100vh;
+  z-index:1;
+  background-color: rgba(0, 0, 0, 0.488);
+}
+
+.vertical {
+  margin-top: 10vh;
+  align-self: center;
+  height: 80vh;
+}
+
+.horizontalImage {
+  width: 100vh;
+}
+
+#closeButton{
+  position: absolute;
+  top: 6vh;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  border: none;
+  background-color: white;
+  left: 2vw;
+  padding-right: 5px;
+  padding-top: 1px;
+}
+
+#imageCaption{
+  color: white;
+  position:absolute;
+  font-size: 18px;
+  left: 4vw;
+  font-family: 'Montserrat', sans-serif;
+}
