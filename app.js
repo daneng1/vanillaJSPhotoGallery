@@ -59,7 +59,7 @@ imageContainer.addEventListener('click', function (event) {
         }
         button.id = "closeButton";
         caption.id = "imageCaption";
-        button.innerText = '✖️';
+        button.innerText = 'Close';
         caption.innerText = `© ${item.user.username}, provided by Unslpash`;
         imageContainer.append(container);
         container.append(button);
