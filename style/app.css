@@ -52,35 +52,50 @@ li img:hover {
 li img {
   border: 1px solid rgba(165, 165, 165, 0.241);
   overflow: hidden;
-  /* height: 150%; */
   text-indent: 50%;
-  /* border-radius: 10px; */
   cursor: pointer;
 }
 
 #fullSizeImageContainer {
   position:fixed;
   top: 0;
+  /* width: 100vw;
+  height: 100vh; */
 }
 
 #container {
-  position: flex;
+  position: fixed;
+  top: 0;
   width: 100vw;
   height: 100vh;
+  /* margin: 10vw auto; */
   z-index:1;
+
   background-color: rgba(0, 0, 0, 0.488);
 }
 
-.vertical {
+#innerContainer {
+  position: flex;
+  width: 80vw;
   height: 80vh;
-  margin-top: 5vh;
-  margin-left: 10vw;
+  margin: 10vw auto;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.vertical {
+  margin: auto;
+  display: inline-block;
+  height: 80vh;
 }
 
 .horizontal {
+  display: inline-block;
   width: 80vw;
-  margin-top: 5vw;
-  margin-left: 10vw;
+  margin: auto;
+  /* margin-top: 5vw; */
+  /* margin-left: 10vw; */
 }
 
 #closeButton{
@@ -100,6 +115,32 @@ li img {
   color: white;
   position:absolute;
   font-size: 18px;
-  margin-left: 10vw;
+  margin-left: 5vw;
   font-family: 'Montserrat', sans-serif;
+}
+
+#forwardButton {
+  display: inline-block;
+  position: absolute;
+  right: 10vw;
+  top: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 64px;
+  background-color: none;
+  color: red;
+}
+
+#reverseButton {
+  display: inline-block;
+  position: absolute;
+  position: absolute;
+  left: 10vw;
+  top: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 64px;
+  background-color: none;
+  border: none;
+  color: red;
 }

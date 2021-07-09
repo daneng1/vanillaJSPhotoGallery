@@ -9,7 +9,7 @@ window.addEventListener('load', async function() {
   let response = await fetch(`${API}photos?per_page=64&query=house&client_id=zFDlTRQqjJs1GfiHkIGGeGJYpE9QAW3J3H-z7uV50xk`)
   let data = await response.json();
   images = data;
-  console.log(data[0]);
+  console.log(images);
 
   let gallery = document.getElementById('photo-gallery');
 
@@ -36,8 +36,9 @@ window.addEventListener('load', async function() {
 let open = false;
 
 // full size image event listener
-let imageContainer = document.getElementById('photo-gallery');
-imageContainer.addEventListener('click', function (event) {
+let gallery = document.getElementById('photo-gallery');
+gallery.addEventListener('click', function (event) {
+  console.log('made it to event');
   if(open === true) {
     return;
   }
@@ -47,24 +48,35 @@ imageContainer.addEventListener('click', function (event) {
       if(item.id === id) {
         open = true;
         let container = document.createElement('div');
+        let innerContainer = document.createElement('div');
         let image = document.createElement('img');
-        let button = document.createElement('button');
+        let closeButton = document.createElement('button');
+        let forward = document.createElement('p');
+        let reverse = document.createElement('p');
         let caption = document.createElement('p');
         image.src = item.urls.regular;
         container.id = "container";
+        innerContainer.id = "innerContainer";
         if (item.width >= item.height) {
           image.className = "horizontal";
         } else {
           image.className = "vertical";
         }
-        button.id = "closeButton";
+        closeButton.id = "closeButton";
         caption.id = "imageCaption";
-        button.innerText = 'Close';
+        closeButton.innerText = 'Close';
         caption.innerText = `© ${item.user.username}, provided by Unslpash`;
+        forward.id = 'forwardButton';
+        reverse.id = 'reverseButton';
+        forward.innerText = "»";
+        reverse.innerText = "«";
         imageContainer.append(container);
-        container.append(button);
-        container.append(image);
-        container.append(caption);
+        container.append(closeButton);
+        container.append(innerContainer);
+        innerContainer.append(reverse);
+        innerContainer.append(image);
+        innerContainer.append(caption);
+        innerContainer.append(forward);
 
       }
       close();
@@ -83,3 +95,12 @@ function close () {
   
   }
 }
+
+// function forward () {
+//   if(open === true) {
+//     document.getElementById("forwardButton").addEventListener('click', function(e) {
+//       e.preventDefault();
+//       images.map
+//     })
+//   }
+// }
