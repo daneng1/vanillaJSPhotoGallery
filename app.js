@@ -34,6 +34,7 @@ window.addEventListener('load', async function() {
 
 // Boolean that is used to determine if full size image is open
 let open = false;
+let index = 0;
 
 // full size image event listener
 let gallery = document.getElementById('photo-gallery');
@@ -44,9 +45,10 @@ gallery.addEventListener('click', function (event) {
   }
   let id = event.target.id;
   let imageContainer = document.getElementById('fullSizeImageContainer');
-  images.map((item) => {
+  images.map((item, idx) => {
       if(item.id === id) {
         open = true;
+        index = idx;
         let container = document.createElement('div');
         let innerContainer = document.createElement('div');
         let image = document.createElement('img');
@@ -55,6 +57,7 @@ gallery.addEventListener('click', function (event) {
         let reverse = document.createElement('p');
         let caption = document.createElement('p');
         image.src = item.urls.regular;
+        image.id = 'fullSizeImage';
         container.id = "container";
         innerContainer.id = "innerContainer";
         if (item.width >= item.height) {
@@ -79,6 +82,7 @@ gallery.addEventListener('click', function (event) {
         innerContainer.append(forward);
 
       }
+      forward();
       close();
   })
 
@@ -86,7 +90,7 @@ gallery.addEventListener('click', function (event) {
 
 // close image event listener, remove elements from DOM
 function close () {
-  if(open === true) {
+  if (open === true) {
     document.getElementById('closeButton').addEventListener('click', function (e) {
       e.preventDefault();
       document.getElementById("container").remove();
@@ -96,11 +100,26 @@ function close () {
   }
 }
 
-// function forward () {
-//   if(open === true) {
-//     document.getElementById("forwardButton").addEventListener('click', function(e) {
-//       e.preventDefault();
-//       images.map
-//     })
-//   }
-// }
+function forward () {
+  if (open === true) {
+    document.getElementById("forwardButton").addEventListener('click', function(e) {
+      e.preventDefault();
+      images.map((item, idx) => {
+        if (idx === index) {
+          console.log(idx + 1, index);
+          let image = document.getElementById('fullSizeImage');
+          image.src = item.urls.regular;
+          if (item.width >= item.height) {
+            image.className = "horizontal";
+          } else {
+            image.className = "vertical";
+          }
+          let caption = document.getElementById("imageCaption");
+          caption.innerText = `© ${item.user.username}, provided by Unslpash`;
+          index = index +1;
+          // current = item[idx + 1];
+        }
+      })
+    })
+  }
+}

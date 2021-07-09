@@ -5,6 +5,7 @@ body {
   justify-content: center;
   align-items: center;
 }
+
 h1 {
   text-align: center;
   top: 10;
@@ -12,6 +13,7 @@ h1 {
   font-size: 5vw;
   margin: 30px;
 }
+
 ul {
   display: flex;
   flex-direction: row;
@@ -45,8 +47,7 @@ ul li .squareImage {
 }
 
 li img:hover {
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4) ;
-
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
 }
 
 li img {
@@ -59,8 +60,6 @@ li img {
 #fullSizeImageContainer {
   position:fixed;
   top: 0;
-  /* width: 100vw;
-  height: 100vh; */
 }
 
 #container {
@@ -68,9 +67,7 @@ li img {
   top: 0;
   width: 100vw;
   height: 100vh;
-  /* margin: 10vw auto; */
   z-index:1;
-
   background-color: rgba(0, 0, 0, 0.488);
 }
 
@@ -81,21 +78,19 @@ li img {
   margin: 10vw auto;
   justify-content: center;
   align-items: center;
-  background-color: white;
 }
 
 .vertical {
   margin: auto;
   display: inline-block;
   height: 80vh;
+  margin-left: 25%;
 }
 
 .horizontal {
   display: inline-block;
   width: 80vw;
   margin: auto;
-  /* margin-top: 5vw; */
-  /* margin-left: 10vw; */
 }
 
 #closeButton{
@@ -115,32 +110,34 @@ li img {
   color: white;
   position:absolute;
   font-size: 18px;
-  margin-left: 5vw;
+  margin-left: 25vw;
   font-family: 'Montserrat', sans-serif;
 }
 
 #forwardButton {
   display: inline-block;
   position: absolute;
-  right: 10vw;
+  right: 7vw;
   top: 50%;
   width: 50px;
   height: 50px;
   font-size: 64px;
   background-color: none;
-  color: red;
+  color: white;
+  cursor: pointer;
 }
 
 #reverseButton {
   display: inline-block;
   position: absolute;
   position: absolute;
-  left: 10vw;
+  left: 8vw;
   top: 50%;
   width: 50px;
   height: 50px;
   font-size: 64px;
   background-color: none;
   border: none;
-  color: red;
+  color: white;
+  cursor: pointer;
 }
