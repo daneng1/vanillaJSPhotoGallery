@@ -38,12 +38,12 @@ let index = 0;
 
 // full size image event listener
 let gallery = document.getElementById('photo-gallery');
-gallery.addEventListener('click', function (event) {
-  console.log('made it to event');
+gallery.addEventListener('click', function (e) {
+  // console.log('made it to event');
   if(open === true) {
     return;
   }
-  let id = event.target.id;
+  let id = e.target.id;
   let imageContainer = document.getElementById('fullSizeImageContainer');
   images.map((item, idx) => {
       if(item.id === id) {
@@ -83,6 +83,7 @@ gallery.addEventListener('click', function (event) {
 
       }
       forward();
+      reverse();
       close();
   })
 
@@ -100,13 +101,18 @@ function close () {
   }
 }
 
-function forward () {
+const forward = () => {
   if (open === true) {
-    document.getElementById("forwardButton").addEventListener('click', function(e) {
+    document.getElementById("forwardButton").addEventListener('click', function (e) {
       e.preventDefault();
-      images.map((item, idx) => {
-        if (idx === index) {
-          console.log(idx + 1, index);
+      if (index === images.length) {
+        document.getElementById("forwardButton").style.display('none');
+      }
+      for (let i = 0; i < images.length; i++) {
+        const newItemIndex = index + 1;
+        if (i === newItemIndex ) {
+          // console.log(i, newItem);
+          const item = images[i];
           let image = document.getElementById('fullSizeImage');
           image.src = item.urls.regular;
           if (item.width >= item.height) {
@@ -116,10 +122,42 @@ function forward () {
           }
           let caption = document.getElementById("imageCaption");
           caption.innerText = `© ${item.user.username}, provided by Unslpash`;
-          index = index +1;
-          // current = item[idx + 1];
         }
-      })
+      }
+      index++;
     })
+  } else {
+    return;
+  }
+}
+
+const reverse = () => {
+  if (open === true) {
+    document.getElementById("reverseButton").addEventListener('click', function (e) {
+      e.preventDefault();
+      console.log(index);
+      if (index === 0) {
+        document.getElementById("reverseButton").innerText('');
+      }
+      // console.log('initial index', index);
+      for (let i = 0; i < images.length; i++) {
+        const newItemIndex = index - 1;
+        if (i === newItemIndex ) {
+          const item = images[i];
+          let image = document.getElementById('fullSizeImage');
+          image.src = item.urls.regular;
+          if (item.width >= item.height) {
+            image.className = "horizontal";
+          } else {
+            image.className = "vertical";
+          }
+          let caption = document.getElementById("imageCaption");
+          caption.innerText = `© ${item.user.username}, provided by Unslpash`;
+        }
+      }
+      index--;
+    })
+  } else {
+    return;
   }
 }
