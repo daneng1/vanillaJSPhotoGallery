@@ -39,7 +39,6 @@ let index = 0;
 // full size image event listener
 let gallery = document.getElementById('photo-gallery');
 gallery.addEventListener('click', function (e) {
-  // console.log('made it to event');
   if(open === true) {
     return;
   }
@@ -135,7 +134,7 @@ const reverse = () => {
   if (open === true) {
     document.getElementById("reverseButton").addEventListener('click', function (e) {
       e.preventDefault();
-      console.log(index);
+
       if (index === 0) {
         document.getElementById("reverseButton").innerText('');
       }
