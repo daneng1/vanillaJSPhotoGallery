@@ -24,7 +24,7 @@ ul {
 }
 
 ul li .horizontalImage {
-  width: 40vw;
+
   overflow: hidden;
   margin: 10px;
   transition: all 350ms;
@@ -32,7 +32,6 @@ ul li .horizontalImage {
 }
 
 ul li .verticalImage {
-  height: 40vw;
   overflow: hidden;
   margin: 10px;
   transition: all 350ms;
@@ -40,7 +39,6 @@ ul li .verticalImage {
 }
 
 ul li .squareImage {
-  height: 40vw;
   overflow: hidden;
   margin: 10px;
   transition: all 350ms;
@@ -97,11 +95,22 @@ li img {
     margin: 10px 22vw 0;
     font-family: 'Montserrat', sans-serif;
   }
+
+  ul li .horizontalImage {
+    width: 40vw;
+  }
+
+  ul li .verticalImage {
+    width: 30vw;
+  }
+
+  ul li .squareImage {
+    width: 40vw;
+  }
 }
 
 @media screen and (orientation: portrait) and (max-width: 767px) {
   .vertical {
-    /* margin: auto; */
     width: 100vw;
     margin: 5vh auto 0;
   }
@@ -118,10 +127,22 @@ li img {
     margin: 5px 10px;
     font-family: 'Montserrat', sans-serif;
   }
+
+  ul li .horizontalImage {
+    width: 40vw;
+  }
+
+  ul li .verticalImage {
+    width: 30vw;
+  }
+
+  ul li .squareImage {
+    width: 40vw;
+  }
 }
 
 /* iPad scaling and positioning */
-@media screen and (orientation: landscape) and (min-width: 768px) {
+@media screen and (orientation: landscape) and (min-width: 768px) and (max-width: 1024px){
   .vertical {
     margin: auto 25vw;
     height: 80vh;
@@ -139,9 +160,21 @@ li img {
     margin: 10px 30vw 0;
     font-family: 'Montserrat', sans-serif;
   }
+
+  ul li .horizontalImage {
+    width: 30vw;
+  }
+
+  ul li .verticalImage {
+    width: 20vw;
+  }
+
+  ul li .squareImage {
+    width: 30vw;
+  }
 }
 
-@media screen and (orientation: portrait) and (min-width: 768px) {
+@media screen and (orientation: portrait) and (min-width: 768px) and (max-width: 1024px){
   .vertical {
     margin: auto;
     height: 80vh;
@@ -159,6 +192,83 @@ li img {
     font-size: 18px;
     margin: 5px 20vw;
     font-family: 'Montserrat', sans-serif;
+  }
+
+  ul li .horizontalImage {
+    width: 30vw;
+  }
+
+  ul li .verticalImage {
+    height: 20vw;
+  }
+
+  ul li .squareImage {
+    width: 30vw;
+  }
+}
+
+@media screen and (orientation: landscape) and (min-width: 1025px){
+  .vertical {
+    margin: auto 25vw;
+    height: 80vh;
+  }
+  
+  .horizontal {
+    width: 80vw;
+    margin: 1vh 10vw 0;
+  } 
+
+  #imageCaption{
+    color: white;
+    position:absolute;
+    font-size: 18px;
+    margin: 10px 30vw 0;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  ul li .horizontalImage {
+    width: 20vw;
+  }
+
+  ul li .verticalImage {
+    width: 15vw;
+  }
+
+  ul li .squareImage {
+    width: 20vw;
+  }
+}
+
+@media screen and (orientation: portrait) and (min-width: 7025px){
+  .vertical {
+    margin: auto;
+    height: 80vh;
+    margin: auto 15vw;
+  }
+  
+  .horizontal {
+    width: 100vw;
+    margin: 15vh auto 0;
+  } 
+
+  #imageCaption{
+    color: white;
+    position:absolute;
+    font-size: 18px;
+    margin: 5px 20vw;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  ul li .horizontalImage {
+    width: 20vw;
+  }
+
+  ul li .verticalImage {
+    height: 15vw;
+  }
+
+  ul li .squareImage {
+    width: 20vw;
   }
 }
 
